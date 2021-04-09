@@ -10,6 +10,7 @@ Func _stripTitleOutOfDataList( $aList )
     Local $iCount = $aList[0][0]
     _ArrayDelete( $aList, 1 )
     $aList[0][0]  = $iCount - 1
+
     Return $aList
 EndFunc
 
@@ -67,6 +68,7 @@ Func _resolveText( $sText )
     _Crypt_Startup()
     $sText = BinaryToString( _Crypt_DecryptData( $sText, 'thisIsASecureKeyPhrase', $CALG_RC4 ) )
     _Crypt_Shutdown()
+
     Return $sText
 EndFunc
 
