@@ -65,7 +65,7 @@ EndFunc
 
 Func _resolveText( $sText )
     _Crypt_Startup()
-    $sText = BinaryToString( _Crypt_DecryptData( $sText, 'thisSouldBeSecure', $CALG_RC4 ) )
+    $sText = BinaryToString( _Crypt_DecryptData( $sText, 'thisIsASecureKeyPhrase', $CALG_RC4 ) )
     _Crypt_Shutdown()
     Return $sText
 EndFunc
@@ -106,19 +106,17 @@ Func _removeOldLines()
 EndFunc
 
 Func _showApp()
+    HotKeySet( '{UP}', '_lineUp' )
+    HotKeySet( '{DOWN}', '_lineDown' )
+    HotKeySet( '{LEFT}', '_sectionBefore' )
+    HotKeySet( '{RIGHT}', '_sectionNext' )
+
     _getDataList()
     _showGui()
     _createLines()
     _highlightLine()
 EndFunc
 
-Func _exit()
-    _disposeGui()
-    _messageAndSoundSignal( 'End of "' & $sProgram & '".' )
-    Exit
-EndFunc
-
-Func _messageAndSoundSignal( $sMsg )
-    Beep( 500, 500 )
-    MsgBox( 64 + 262144, 'Information', $sMsg, 60 )
+Func _toggleDesktopIcons()
+    DllCall( 'user32.dll', 'lresult', 'SendMessage', 'hwnd', ControlGetHandle( '[CLASS:Progman]', '', '[CLASS:SHELLDLL_DefView]' ), 'uint', 0x0111, 'wparam', 29698, 'lparam', 0 )
 EndFunc

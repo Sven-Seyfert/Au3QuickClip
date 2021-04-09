@@ -1,12 +1,12 @@
-Global $sProgram                 = 'QuickClip'
+Global $sProgram                 = 'Au3QuickClip'
 Global $sFileConfig              = '..\config\config.ini'
 Global $iSection                 = 1
 Global $iLine                    = 1
 
 Global $aGui[$iEnumVariables]
        $aGui[$eHandle]           = ''
-       $aGui[$eWidth]            = 1200
-       $aGui[$eHeight]           = 600
+       $aGui[$eWidth]            = 640
+       $aGui[$eHeight]           = 480
        $aGui[$eXPosition]        = Default
        $aGui[$eYPosition]        = Default
        $aGui[$eBorderSize]       = 3

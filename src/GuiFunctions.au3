@@ -1,11 +1,11 @@
 Func _showGui()
     $aGui[$eHandle] = GUICreate( '', $aGui[$eWidth], $aGui[$eHeight], $aGui[$eXPosition], $aGui[$eYPosition], $WS_POPUP, $WS_EX_TRANSPARENT )
-    GUISetFont( 11, 700, 0, 'Input' )
+    GUISetFont( 11, 700, 0, 'Consolas' )
 
     _createGuiBorder()
     _showGuiTitle()
 
-    WinSetTrans( $aGui[$eHandle], '', 200 )
+    WinSetTrans( $aGui[$eHandle], '', 195 )
     WinSetOnTop( $aGui[$eHandle], '', 1 )
     GUISetState( @SW_SHOW, $aGui[$eHandle] )
 EndFunc
@@ -29,6 +29,11 @@ Func _showGuiTitle()
 EndFunc
 
 Func _disposeGui()
+    HotKeySet( '{UP}' )
+    HotKeySet( '{DOWN}' )
+    HotKeySet( '{LEFT}' )
+    HotKeySet( '{RIGHT}' )
+
     GUIDelete( $aGui[$eHandle] )
     ClipPut( '' )
 EndFunc
