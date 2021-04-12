@@ -39,10 +39,15 @@ To be defined [...]
 
 ## Keyboard Shortcuts
 
-| Action | Shortcut |
-| :------| :------- |
-| ...    | ...      |
-| ...    | ...      |
+| Action               | Shortcut  |
+| :------              | :-------  |
+| Hide App             | `Alt+ESC` |
+| Show App             | `Alt+F9`  |
+| Toggle Desktop Icons | `Alt+F11` |
+
+HotKeySet( '!{F9}',  '_showApp' )
+HotKeySet( '!{ESC}', '_disposeGui' )
+HotKeySet( '!{F11}', '_toggleDesktopIcons' )
 
 ## Contributing
 
