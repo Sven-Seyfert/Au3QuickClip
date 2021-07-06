@@ -1,7 +1,7 @@
 #####
 
 <p align="center">
-    <img src="https://github.com/Sven-Seyfert/Au3QuickClip/blob/main/media/favicon.ico" width="80" />
+    <img src="images/icon.png" width="80" />
     <h2 align="center">Welcome to <code>Au3QuickClip</code>【ツ】</h2>
 </p>
 
@@ -40,7 +40,7 @@ To be defined [...]
 ## Keyboard Shortcuts
 
 | Action               | Shortcut  |
-| :------              | :-------  |
+| :---                 | :---      |
 | Hide App             | `Alt+ESC` |
 | Show App             | `Alt+F9`  |
 | Toggle Desktop Icons | `Alt+F11` |
