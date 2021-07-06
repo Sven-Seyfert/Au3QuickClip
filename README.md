@@ -45,10 +45,6 @@ To be defined [...]
 | Show App             | `Alt+F9`  |
 | Toggle Desktop Icons | `Alt+F11` |
 
-HotKeySet( '!{F9}',  '_showApp' )
-HotKeySet( '!{ESC}', '_disposeGui' )
-HotKeySet( '!{F11}', '_toggleDesktopIcons' )
-
 ## Contributing
 
 Just look at [CONTRIBUTING](https://github.com/Sven-Seyfert/Au3QuickClip/blob/main/docs/CONTRIBUTING.md), thank you!
