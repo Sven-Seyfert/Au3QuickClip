@@ -1,4 +1,3 @@
-Global $iEnumVariables = 10
 Global Enum _
     $eBackground, _
     $eBorder, _
@@ -9,4 +8,5 @@ Global Enum _
     $eText, _
     $eWidth, _
     $eXPosition, _
-    $eYPosition
+    $eYPosition, _
+    $iMaxEnumIndex

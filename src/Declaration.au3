@@ -3,7 +3,7 @@ Global $sFileConfig              = '..\config\config.ini'
 Global $iSection                 = 1
 Global $iLine                    = 1
 
-Global $aGui[$iEnumVariables]
+Global $aGui[$iMaxEnumIndex]
        $aGui[$eHandle]           = ''
        $aGui[$eWidth]            = 640
        $aGui[$eHeight]           = 480
@@ -11,7 +11,7 @@ Global $aGui[$iEnumVariables]
        $aGui[$eYPosition]        = Default
        $aGui[$eBorderSize]       = 3
 
-Global $aColor[$iEnumVariables]
+Global $aColor[$iMaxEnumIndex]
        $aColor[$eBackground]     = 0x282C34
        $aColor[$eBorder]         = 0xE06C75
        $aColor[$eLineBackground] = 0x323844 ; 0x2C313C
