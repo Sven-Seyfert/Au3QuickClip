@@ -1,12 +1,12 @@
-Func _getDataList()
+Func _GetDataList()
     $aDataList  = IniReadSection($sFileConfig, 'DataList' & $iSection)
     $sTitle     = $aDataList[1][1]
-    $aDataList  = _stripTitleOutOfDataList($aDataList)
+    $aDataList  = _StripTitleOutOfDataList($aDataList)
     $iDataCount = $aDataList[0][0]
     Redim $aLabelList[$iDataCount + 1]
 EndFunc
 
-Func _stripTitleOutOfDataList($aList)
+Func _StripTitleOutOfDataList($aList)
     Local $iCount = $aList[0][0]
     _ArrayDelete($aList, 1)
     $aList[0][0]  = $iCount - 1
@@ -14,7 +14,7 @@ Func _stripTitleOutOfDataList($aList)
     Return $aList
 EndFunc
 
-Func _existSection($iSectionNumber)
+Func _ExistSection($iSectionNumber)
     Local $aSectionList = IniReadSectionNames($sFileConfig)
 
     For $i = 1 To $aSectionList[0] Step 1
@@ -24,7 +24,7 @@ Func _existSection($iSectionNumber)
     Return False
 EndFunc
 
-Func _createLines()
+Func _CreateLines()
     For $i = 1 To $iDataCount Step 1
         $aLabelList[$i] = GUICtrlCreateLabel(_StringRepeat(' ', 2) & $i & _StringRepeat(' ', 2) & $aDataList[$i][1], $aGui[$eBorderSize], (26 * $i) + $aGui[$eBorderSize], $aGui[$eWidth] - $aGui[$eBorderSize] * 2, 23)
         GUICtrlSetColor(-1, $aColor[$eText])
@@ -32,39 +32,39 @@ Func _createLines()
     GUICtrlSetData($cTitle, _StringRepeat(' ', 2) & $sTitle)
 EndFunc
 
-Func _highlightLine()
+Func _HighlightLine()
     GUICtrlSetBkColor($aLabelList[$iLine], $aColor[$eLineBackground])
-    _copyLineLabelTextToClipboard()
+    _CopyLineLabelTextToClipboard()
 EndFunc
 
-Func _resetHighlightingOfTheLine()
+Func _ResetHighlightingOfTheLine()
     For $i = 1 To $iDataCount Step 1
         GUICtrlSetBkColor($aLabelList[$i], $aColor[$eBackground])
     Next
 EndFunc
 
-Func _lineUp()
-    _resetHighlightingOfTheLine()
+Func _LineUp()
+    _ResetHighlightingOfTheLine()
     If $iLine >= 2 Then $iLine -= 1
-    _highlightLine()
-    _copyLineLabelTextToClipboard()
+    _HighlightLine()
+    _CopyLineLabelTextToClipboard()
 EndFunc
 
-Func _lineDown()
-    _resetHighlightingOfTheLine()
+Func _LineDown()
+    _ResetHighlightingOfTheLine()
     If $iLine <= $iDataCount - 1 Then $iLine += 1
-    _highlightLine()
-    _copyLineLabelTextToClipboard()
+    _HighlightLine()
+    _CopyLineLabelTextToClipboard()
 EndFunc
 
-Func _copyLineLabelTextToClipboard()
+Func _CopyLineLabelTextToClipboard()
     Local $sText = GUICtrlRead($aLabelList[$iLine])
     $sText = StringReplace($sText, _StringRepeat(' ', 2) & $iLine & _StringRepeat(' ', 2), '')
-    If StringLeft($sText, 2) == '0x' Then $sText = _resolveText($sText)
+    If StringLeft($sText, 2) == '0x' Then $sText = _ResolveText($sText)
     ClipPut($sText)
 EndFunc
 
-Func _resolveText($sText)
+Func _ResolveText($sText)
     _Crypt_Startup()
     $sText = BinaryToString(_Crypt_DecryptData($sText, 'thisIsASecureKeyPhrase', $CALG_RC4))
     _Crypt_Shutdown()
@@ -72,53 +72,53 @@ Func _resolveText($sText)
     Return $sText
 EndFunc
 
-Func _sectionBefore()
-    If _existSection($iSection - 1) Then
+Func _SectionBefore()
+    If _ExistSection($iSection - 1) Then
         $iSection -= 1
         $iLine     = 1
-        _setGuiPosition()
-        _removeOldLines()
-        _getDataList()
-        _createLines()
-        _highlightLine()
+        _SetGuiPosition()
+        _RemoveOldLines()
+        _GetDataList()
+        _CreateLines()
+        _HighlightLine()
     EndIf
 EndFunc
 
-Func _sectionNext()
-    If _existSection($iSection + 1) Then
+Func _SectionNext()
+    If _ExistSection($iSection + 1) Then
         $iSection += 1
         $iLine     = 1
-        _setGuiPosition()
-        _removeOldLines()
-        _getDataList()
-        _createLines()
-        _highlightLine()
+        _SetGuiPosition()
+        _RemoveOldLines()
+        _GetDataList()
+        _CreateLines()
+        _HighlightLine()
     EndIf
 EndFunc
 
-Func _setGuiPosition()
+Func _SetGuiPosition()
     $aGui[$eXPosition] = WinGetPos($aGui[$eHandle])[0]
     $aGui[$eYPosition] = WinGetPos($aGui[$eHandle])[1]
 EndFunc
 
-Func _removeOldLines()
+Func _RemoveOldLines()
     For $i = 1 To $iDataCount Step 1
         GUICtrlDelete($aLabelList[$i])
     Next
 EndFunc
 
-Func _showApp()
-    HotKeySet('{UP}', '_lineUp')
-    HotKeySet('{DOWN}', '_lineDown')
-    HotKeySet('{LEFT}', '_sectionBefore')
-    HotKeySet('{RIGHT}', '_sectionNext')
+Func _ShowApp()
+    HotKeySet('{UP}', '_LineUp')
+    HotKeySet('{DOWN}', '_LineDown')
+    HotKeySet('{LEFT}', '_SectionBefore')
+    HotKeySet('{RIGHT}', '_SectionNext')
 
-    _getDataList()
-    _showGui()
-    _createLines()
-    _highlightLine()
+    _GetDataList()
+    _ShowGui()
+    _CreateLines()
+    _HighlightLine()
 EndFunc
 
-Func _toggleDesktopIcons()
+Func _ToggleDesktopIcons()
     DllCall('user32.dll', 'lresult', 'SendMessage', 'hwnd', ControlGetHandle('[CLASS:Progman]', '', '[CLASS:SHELLDLL_DefView]'), 'uint', 0x0111, 'wparam', 29698, 'lparam', 0)
 EndFunc
