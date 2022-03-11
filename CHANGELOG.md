@@ -72,7 +72,7 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 - AutoIt Code formatting to the common notation without additional spaces after opened brackets and before closed brackets.
 
 [Unreleased]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.5.0...HEAD
-[1.5.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.4.0...v1.4.0
+[1.5.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.1.0...v1.2.0
