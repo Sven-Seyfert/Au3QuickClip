@@ -50,7 +50,6 @@ To be defined [...]
 | :---                 | :---      |
 | Hide App             | `Alt+ESC` |
 | Show App             | `Alt+F9`  |
-| Toggle Desktop Icons | `Alt+F11` |
 
 ## Configuration
 
