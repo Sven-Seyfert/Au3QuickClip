@@ -14,8 +14,8 @@
 
 
 ; opt and just singleton -------------------------------------------------------
-Opt( 'MustDeclareVars', 1 )
-Global $aInst = ProcessList( 'CryptTest.exe' )
+Opt('MustDeclareVars', 1)
+Global $aInst = ProcessList('CryptTest.exe')
 If $aInst[0][0] > 1 Then Exit
 
 
@@ -26,13 +26,6 @@ If $aInst[0][0] > 1 Then Exit
 
 
 
-; declaration ------------------------------------------------------------------
-Global $sData      = 'test'
-Global $sKey       = 'thisIsASecureKeyPhrase'
-Global $iAlgorithm = $CALG_RC4
-
-
-
 ; processing -------------------------------------------------------------------
 ConsoleWrite(_GenerateEncryptedString() & @CRLF)
 
@@ -40,10 +33,12 @@ ConsoleWrite(_GenerateEncryptedString() & @CRLF)
 
 ; functions --------------------------------------------------------------------
 Func _GenerateEncryptedString()
+    Local Const $sData      = 'test'
+    Local Const $sSalt      = 'thisIsASecureKeyPhrase'
+    Local Const $iAlgorithm = $CALG_RC4
+
     _Crypt_Startup()
-
-    Local $sEncryptedData = _Crypt_EncryptData($sData, $sKey, $iAlgorithm)
-
+    Local $sEncryptedData = _Crypt_EncryptData($sData, $sSalt, $iAlgorithm)
     _Crypt_Shutdown()
 
     Return $sEncryptedData
