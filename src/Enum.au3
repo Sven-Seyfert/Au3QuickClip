@@ -6,6 +6,7 @@ Global Enum _
     $eHeight, _
     $eLineBackground, _
     $eText, _
+    $eTitle, _
     $eWidth, _
     $eXPosition, _
     $eYPosition, _

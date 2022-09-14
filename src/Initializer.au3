@@ -1,21 +1,23 @@
-Global $sProgram                 = 'Au3QuickClip'
 Global $sFileConfig              = '..\config\config.ini'
 Global $iSection                 = 1
 Global $iLine                    = 1
 
 Global $aGui[$iMaxEnumIndex]
-       $aGui[$eHandle]           = ''
-       $aGui[$eWidth]            = 640
-       $aGui[$eHeight]           = 480
+       $aGui[$eHandle]           = Null
+       $aGui[$eWidth]            = 896
+       $aGui[$eHeight]           = 504
        $aGui[$eXPosition]        = Default
        $aGui[$eYPosition]        = Default
-       $aGui[$eBorderSize]       = 3
+       $aGui[$eBorderSize]       = 2
 
 Global $aColor[$iMaxEnumIndex]
-       $aColor[$eBackground]     = 0x282C34
-       $aColor[$eBorder]         = 0xE06C75
-       $aColor[$eLineBackground] = 0x323844 ; 0x2C313C
-       $aColor[$eText]           = 0x56B6C2 ; 0x98C379
+       $aColor[$eBackground]     = 0x21252B
+       $aColor[$eBorder]         = 0x474A4F
+       $aColor[$eLineBackground] = 0x282C34
+       $aColor[$eText]           = 0xCCCCCC
+       $aColor[$eTitle]          = 0xFFFFFF
 
 Global $aDataList, $aLabelList[1]
-Global $iDataCount, $cTitle, $sTitle
+Global $cTitle, $cSectionCounter
+Global $sTitle
+Global $iDataCount, $iCountOfSections

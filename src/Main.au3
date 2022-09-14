@@ -33,15 +33,13 @@ If $aInst[0][0] > 1 Then Exit
 ; modules ----------------------------------------------------------------------
 #include "Enum.au3"
 #include "Initializer.au3"
-#include "Init.au3"
-#include "GuiFunctions.au3"
-#include "Functions.au3"
+#include "ActionHandler.au3"
+#include "NavigationController.au3"
+#include "GuiBuilder.au3"
+#include "CopyController.au3"
+#include "Helper.au3"
 
 
 
 ; processing -------------------------------------------------------------------
-While True
-    Switch GUIGetMsg()
-        Case $GUI_EVENT_CLOSE
-    EndSwitch
-WEnd
+_Actions()
