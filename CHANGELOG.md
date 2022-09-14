@@ -11,6 +11,15 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [1.7.0] - 2022-09-14
+
+### Changed
+
+- Bigger code refactoring to achieve my current quality and code style standards.
+- Small README adjustment because of the removed functionality of toggle desktop icons.
+- Style of license file.
+- Utility script structure.
+
 ## [1.6.0] - 2022-08-05
 
 ### Changed
@@ -81,7 +90,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - AutoIt Code formatting to the common notation without additional spaces after opened brackets and before closed brackets.
 
-[Unreleased]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/Au3QuickClip/compare/v1.3.0...v1.4.0
